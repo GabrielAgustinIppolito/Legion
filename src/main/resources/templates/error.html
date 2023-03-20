@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--<html lang="en">  Una tag può avere zero o più attributi -->
+<head>              <!-- Contiene meta informazioni  che non si vedranno nella pagina-->
+    <meta charset="UTF-8">
+    <title>Errore</title>
+</head>
+<body>      <!--Quello che si vede nella pagina -->
+    <p th:text="${error}">
+        Errore di sistema
+    </p>
+</body>
+</html>

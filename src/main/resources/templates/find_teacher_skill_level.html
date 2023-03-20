@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trova gli insegnanti</title>
+</head>
+<body>
+<a th:href="@{/home}">&#127969; Home</a>
+<br><br>
+<form action="findTeacherBySkillAndLevel" method="get">
+    <label for="skillId">Id della skill</label>
+    <input type="number" name="skillId" id="skillId" min="1" required>
+    <select name="Level">
+        <option th:each="levelOption : ${T(org.generation.italy.legion.model.entities.Level).values()}"
+                th:value="${levelOption}" th:text="${levelOption}"></option>
+    </select>
+    <button>Cerca</button>
+</form>
+<p>
+<table>
+    <thead>
+    <tr>
+
+        <th> Id Insegnante </th>
+        <th> Cognome </th>
+        <th> Nome </th>
+        <th> Data di nascita </th>
+        <th> Sesso </th>
+        <th> Email </th>
+        <th> Telefono </th>
+        <th> Username </th>
+<!--        <th>Password:</th>      ma anche no-->
+        <th> Partita IVA </th>
+        <th> Impiegato </th>
+        <th> Data assunzione </th>
+        <th> Data licenziamento </th>
+        <th> Competenze </th>
+<!--        <th> Livello </th>-->
+<!--        <th> ID Skill </th>-->
+<!--        <th> Skill </th>-->
+<!--        <th> Descrizione Skill </th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="t : ${teachers}">
+        <td th:text="${t.id}">2000</td>
+        <td th:text="${t.lastname}">Java</td>
+        <td th:text="${t.firstname}">Merda</td>
+        <td th:text="${t.dob}"> Data di nascita </td>
+        <td th:text="${t.sex}"> Sesso </td>
+        <td th:text="${t.email}"> Email </td>
+        <td th:text="${t.cellNumber}"> Telefono </td>
+        <td th:text="${t.username}"></td>
+        <td th:text="${t.pIVA}"> Partita IVA </td>
+        <td th:text="${t.isEmployee}"> Impiegato </td>
+        <td th:text="${t.hireDate}"> Data assunzione </td>
+        <td th:text="${t.fireDate}"> Data licenziamento </td>
+        <td th:text="${t.competences}"> Competenze </td>
+<!--        <td th:text="${t.firstname}"> Livello </td>-->
+<!--        <td th:text="${t.firstname}"> ID Skill </td>-->
+<!--        <td th:text="${t.firstname}"> Skill </td>-->
+<!--        <td th:text="${t.firstname}"> Descrizione Skill </td>-->
+    </tr>
+    </tbody>
+</table>
+</p>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--<html lang="en">  Una tag può avere zero o più attributi -->
+<head>              <!-- Contiene meta informazioni  che non si vedranno nella pagina-->
+    <meta charset="UTF-8">
+    <title>Lista dei corsi</title>
+</head>
+<body>      <!--Quello che si vede nella pagina -->
+<a th:href="@{/home}">&#127969; Home</a>
+<br><br>
+<h1>Questi sono i corsi presenti</h1>
+<p>
+<table>
+    <thead>
+    <tr>
+        <th>Id Corso</th>
+        <th>Titolo</th>
+        <th>Descrizione</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="c : ${courses}">
+        <td th:text="${c.id}">2000</td>
+        <td th:text="${c.title}">Java</td>
+        <td th:text="${c.description}">Niente</td>
+    </tr>
+    </tbody>
+</table>
+<h2>Vuoi più dettagli su un corso?</h2>
+<form action="findCourseById" method="get">
+    <label for="courseId">Id Corso</label>
+    <input type="number" name="courseId" id="courseId">
+    <button>Ricerca corso per Id</button>
+</form>
+</p>
+</body>
+</html>

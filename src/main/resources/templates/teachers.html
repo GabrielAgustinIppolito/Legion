@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Insegnanti</title>
+</head>
+<body>
+<a th:href="@{/home}">&#127969; Home</a>
+<br><br>
+<h1>Questi sono tutti gli insegnanti</h1>
+<p>
+<table>
+    <thead>
+    <tr>
+        <th>Id Insegnante:</th>
+        <th>Cognome:</th>
+        <th>Nome:</th>
+        <th>Username:</th>
+        <th> Competenze </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="t : ${teachers}">
+        <td th:text="${t.id}">2000</td>
+        <td th:text="${t.lastname}">Java</td>
+        <td th:text="${t.firstname}">cfhytg</td>
+        <td th:text="${t.username}">hi</td>
+<!--        <td th:each="c : ${t.competences}"></td>-->
+<!--        <td th:text="${c.skill} ${c.level}"></td>-->
+<!--        <td th:text="${t.getCompetences()}"> Competenze </td>-->
+    </tr>
+    </tbody>
+</table>
+</p>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inserimento nuovo corso</title>
+</head>
+<body>
+<a th:href="@{/home}">&#127969; Home</a>
+<br><br>
+  <h1>Aggiungi i dati del nuovo corso</h1>
+<!--  String title, String description, String program, double duration, boolean isActive, LocalDate createdAt-->
+  <form action="newCourse" method="post" th:object="${course}">
+      <label for="title">Titolo corso</label>
+      <input type="text" name="title" id="title">
+      <br>
+      <label for="description">Descrizione</label>
+      <input type="text" name="description" id="description" maxlength="100" required>
+      <br>
+      <label for="program">Programma del corso</label>
+      <input type="text" name="program" id="program" maxlength="500">
+      <br>
+      <label for="duration">Durata</label>
+      <input type="number" step="0.01" min="0.25" name="duration" id="duration" required>
+      <br>
+<!--      <label for="isActive">Attivo</label>-->
+<!--      <input type="checkbox" name="isActive" id="isActive" checked="true">-->
+      <label for="isActive">Attivo</label>
+      <input type="checkbox" name="isActive" id="isActive" checked="true">
+      <br>
+      <label for="createdAt">Data creazione</label>
+      <input type="date" name="createdAt" id="createdAt" maxlength="10" required>
+      <br>
+      <button>Aggiungi</button>
+      <br>
+  </form>
+<table>
+    <thead>
+    <tr>
+        <th>ID Corso</th>
+        <th>Titolo</th>
+        <th>Descrizione</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="c : ${courses}">
+        <td th:text="${c.id}">2000</td>
+        <td th:text="${c.title}">Java</td>
+        <td th:text="${c.description}">Descrizione di deafault</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trova da una parte del titolo</title>
+</head>
+<body>
+<a th:href="@{/home}">&#127969; Home</a>
+<br><br>
+<form action="findByTitle" method="get">
+    <label for="part">Titolo corso</label>
+    <input type="text" name="part" id="part" maxlength="32" required>
+    <button>Cerca</button>
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>Id Corso</th>
+        <th>Titolo</th>
+        <th>Descrizione</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="c : ${courses}">
+        <td th:text="${c.id}">2000</td>
+        <td th:text="${c.title}">Java</td>
+        <td th:text="${c.description}">Niente</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
